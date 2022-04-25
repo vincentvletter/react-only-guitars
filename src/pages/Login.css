@@ -1,0 +1,52 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #C4C4C4;
+    opacity: 80%;
+    padding: 32px;
+    max-width: 350px;
+    border-radius: 4px;
+}
+
+form label {
+    margin: 4px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+form input {
+    width: 100%;
+    padding: 4px 8px;
+    margin: 6px 0;
+    text-align: center;
+}
+
+.login-button {
+    width: 10em;
+    height: 2em;
+    border-radius: 4px;
+}
+
+h2 {
+    font-family: 'Edwardian Script ITC';
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+a {
+    margin-bottom: 2em;
+    margin-top: 1em;
+    color: blue;
+}
+
+p {
+    font-size: 1rem;
+}
