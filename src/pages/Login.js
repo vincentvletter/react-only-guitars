@@ -1,5 +1,5 @@
 import "./Login.css";
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 function Login() {
     const {login} = useContext(AuthContext);
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const [errorMessage, setErrorMessage] = useState("");
 
 
     async function logUserIn(data) {
@@ -17,8 +18,10 @@ function Login() {
                 password: data.password,
             })
             login(response.data);
+
         } catch (e) {
             console.error(e.response.data)
+            setErrorMessage("Verkeerde gebruikersnaam of wachtwoord")
         }
     }
 
@@ -55,6 +58,7 @@ function Login() {
                         <p className="error-message">{errors.password.message}</p>)}
                 </label>
                 <button className="button" type="submit">login</button>
+                {errorMessage && (<p className="error-message">{errorMessage}</p>)}
                 <p>Heb je nog geen account? <Link to="/register"><span className="blue">Registreren</span></Link></p>
             </form>
         </div>

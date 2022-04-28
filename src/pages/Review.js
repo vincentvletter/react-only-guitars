@@ -31,7 +31,6 @@ function Review() {
     }
 
     function onFormSubmit(data) {
-        console.log(data);
         addReviewToGuitar(data);
     }
 
