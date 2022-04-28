@@ -18,14 +18,13 @@ function Register() {
                 password: data.password,
                 username: data.username,
             })
-            setSuccessMessage("account successful created!")
+            setSuccessMessage("account successful created!");
+            history.push('/');
         } catch (e) {
             console.error(e.response.data);
-            setErrorMessage(e.response.data.errorList[0])
+            setErrorMessage("Gebruikersnaam bestaat al");
         }
-        history.push('/');
     }
-
 
     function onFormSubmit(data) {
         userRegister(data);
