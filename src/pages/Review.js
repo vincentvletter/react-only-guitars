@@ -58,6 +58,10 @@ function Review() {
                         cols="35"
                         {...register("details", {
                             required: "het veld is leeg!",
+                            maxLength: {
+                                value: 500,
+                                message: "Er mogen maximaal 500 karakters gebruikt worden",
+                            }
                         })}
                     />
                     {errors.details && (

@@ -48,10 +48,11 @@ function Guitar() {
                     Authorization: `Bearer ${token}`,
                 }
             });
-            setSuccessMessage("Guitar toegevoed aan profiel!");
+            setSuccessMessage("Gitaar toegevoegd aan profiel!");
         } catch (e) {
             console.error(e.response.data);
-            setErrorMessage("Deze gitaar staat al op je profiel!")
+            setErrorMessage("Deze gitaar staat al op je profiel!");
+            setSuccessMessage("");
         }
     }
 
