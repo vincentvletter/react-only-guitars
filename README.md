@@ -1,73 +1,49 @@
-# Getting Started with Create React App
+# Welkom bij de Only Guitars Applicatie
+Deze applicatie is ontwikkelt om mensen met een passie voor gitaren, gitaren te liken en reviews te schrijven bij hun favourite gitaren.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# De applicatie starten
 
-## Available Scripts
+### Clone de backend applicatie
 
-In the project directory, you can run:
+Clone hier "HIER DE BACKEND LINK" de backend applicatie, en open deze in IntelliJ IDEA, en RUN de applicatie.
+
+### Clone de applicatie
+
+Clone de applicatie en open het in WebStorm.
+
+Als je de applicatie gecloned hebt naar jouw locale machine, installeer je eerst de node_modules door het volgende commando in de terminal te runnen:
+
+### `npm install`
+
+Wanneer dit klaar is, kun je de applicatie starten met behulp van:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Of gebruik de WebStorm knop (npm start). 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Open http://localhost:3000 om de pagina in de browser te bekijken.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Functies op de pagina
 
-### `npm run build`
+### Functies als gebruiker zijn,
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Registreren
+* Inloggen
+* Profiel pagina bekijken
+* Overzicht bekijken
+* Gitaar bekijken
+* Gitaar leuk vinden
+* Review over een gitaar schrijven
+* Een gitaar aanvragen
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Functies als admin zijn,
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-#� �r�e�a�c�t�-�o�n�l�y�-�g�u�i�t�a�r�s�s
-�
-�
+* Inloggen
+* Profiel pagina bekijken
+* Overzicht bekijken
+* Gitaar bekijken
+* Gitaar leuk vinden
+* Review over een gitaar schrijven
+* Een gitaar uploaden
+* Gitaar aanvragen verwijderen
