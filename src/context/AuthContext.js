@@ -19,7 +19,6 @@ function AuthContextProvider({children}) {
 
         if (token) {
             const decodedToken = jwt_decode(token)
-            console.log(decodedToken);
             if (decodedToken.exp * 1000 < new Date().getTime()) {
                 logout()
             }
@@ -65,13 +64,13 @@ function AuthContextProvider({children}) {
 
         localStorage.setItem("token", jwtToken);
 
-        const decodedToken = jwt_decode(jwtToken);
-        console.log(decodedToken);
-        console.log("ingelogd");
         setAuth({
             ...auth,
             isAuth: true,
             status: "done",
+            user: {
+                role: "USER",
+            }
         })
 
         fetchUserData(jwtToken);
@@ -79,7 +78,6 @@ function AuthContextProvider({children}) {
     }
 
     function logout() {
-        console.log("uitgelogd");
         localStorage.removeItem('token');
         setAuth({
             ...auth,

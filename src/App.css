@@ -18,5 +18,17 @@
     flex-grow: 0;
 }
 
+.error-message {
+    color: red;
+}
+
+.logo {
+    width: 100%;
+    max-width: 800px;
+}
+
+p{
+    display: inline;
+}
 
 

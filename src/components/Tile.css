@@ -29,13 +29,32 @@
     height: 32px;
 }
 
-.test {
+.profile-likes {
     position:absolute;
     bottom: 25px;
     right: 25px;
     color: #e3dcdc;
 }
 
+.review-icon{
+    position: absolute;
+    bottom: 22px;
+    left: 25px;
+    width: 32px;
+    height: 32px;
+}
+
+.reviews {
+    position:absolute;
+    bottom: 25px;
+    left: 54px;
+    color: black;
+}
+
+.guitar-link{
+    margin-bottom: 0em;
+    margin-top: 0em;
+}
 
 @media screen and (min-width: 576px) {
     .tile {
@@ -45,6 +64,6 @@
 
 @media screen and (min-width: 992px) {
     .tile {
-        width: 30%;
+        width: 32%;
     }
 }

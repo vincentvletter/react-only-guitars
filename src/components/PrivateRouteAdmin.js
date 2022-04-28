@@ -4,11 +4,11 @@ import {Redirect, Route} from "react-router-dom";
 
 function PrivateRoute({children, ...rest}) {
 
-    const {isAuth} = useContext(AuthContext);
+    const contextData = useContext(AuthContext);
 
     return (
         <Route {...rest}>
-            {isAuth ? children : <Redirect to="/"/>}
+            {contextData.user.role === "ADMIN" ? children : <Redirect to="/profile"/>}
         </Route>
     )
 }

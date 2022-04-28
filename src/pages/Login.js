@@ -3,12 +3,12 @@ import React, {useContext} from "react";
 import {AuthContext} from "../context/AuthContext";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function Login() {
     const {login} = useContext(AuthContext);
-    const {register, handleSubmit} = useForm();
-    const history = useHistory();
+    const {register, handleSubmit, formState: {errors}} = useForm();
+
 
     async function logUserIn(data) {
         try {
@@ -17,11 +17,9 @@ function Login() {
                 password: data.password,
             })
             login(response.data);
-
         } catch (e) {
             console.error(e.response.data)
         }
-
     }
 
     function onFormSubmit(data) {
@@ -33,24 +31,31 @@ function Login() {
             <form onSubmit={handleSubmit(onFormSubmit)}>
                 <h2>Login</h2>
                 <label htmlFor="details-username">
-                    Username:
+                    Gebruikersnaam:
                     <input
                         type="text"
                         id="details-username"
-                        {...register("username")}
+                        {...register("username",{
+                            required: "het veld is leeg",
+                        })}
                     />
+                    {errors.username && (
+                        <p className="error-message">{errors.username.message}</p>)}
                 </label>
                 <label htmlFor="details-wachtwoord">
-                    Password:
+                    Wachtwoord:
                     <input
                         type="password"
                         id="details-wachtwoord"
-                        {...register("password")}
+                        {...register("password", {
+                            required: "het veld is leeg",
+                        })}
                     />
+                    {errors.password && (
+                        <p className="error-message">{errors.password.message}</p>)}
                 </label>
-                <button className="login-button" type="submit">login</button>
-                <Link><p>wachtwoord vergeten?</p></Link>
-                <p>Heb je nog geen account? <Link to="/register">Registreren</Link></p>
+                <button className="button" type="submit">login</button>
+                <p>Heb je nog geen account? <Link to="/register"><span className="blue">Registreren</span></Link></p>
             </form>
         </div>
     );

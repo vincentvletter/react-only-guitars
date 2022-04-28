@@ -14,19 +14,16 @@ function Register() {
     async function userRegister(data) {
 
         try {
-            const response = await axios.post("http://localhost:8080/register", {
+            await axios.post("http://localhost:8080/register", {
                 password: data.password,
                 username: data.username,
             })
             setSuccessMessage("account successful created!")
-            setInterval(() => {
-                history.push('/');
-            }, 2000)
-
         } catch (e) {
             console.error(e.response.data);
             setErrorMessage(e.response.data.errorList[0])
         }
+        history.push('/');
     }
 
 
@@ -39,45 +36,50 @@ function Register() {
             <form onSubmit={handleSubmit(onFormSubmit)}>
                 <h2>Registreren</h2>
                 <label htmlFor="details-usrename">
-                    Username:
+                    Gebruikersnaam:
                     <input
                         type="text"
                         id="details-username"
-                        {...register("username")}
+                        {...register("username",{
+                            required: "Het veld is leeg!",
+                        })}
                     />
+                    {errors.username && (
+                        <p className="error-message">{errors.username.message}</p>
+                    )}
                 </label>
                 <label htmlFor="details-password">
-                    Password:
+                    Wachtwoord:
                     <input
                         type="password"
                         id="details-password"
                         {...register("password", {
-                            required: "This field is required!",
+                            required: "Het veld is leeg!",
                         })}
                     />
                     {errors.password && (
-                        <p>{errors.password.message}</p>
+                        <p className="error-message">{errors.password.message}</p>
                     )}
                 </label>
                 <label htmlFor="details-password-check">
-                    password:
+                    Herhaal wachtwoord:
                     <input
                         type="password"
                         id="details-password-check"
                         {...register("passwordCheck", {
-                            required: "This field is required!",
+                            required: "Het veld is leeg!",
                             validate: value =>
-                                value === watch("password") || "The passwords do not match!",
+                                value === watch("password") || "Wahtwoorden zijn niet het zelfde!",
                         })}
                     />
                     {errors.passwordCheck && (
-                        <p>{errors.passwordCheck.message}</p>
+                        <p className="error-message">{errors.passwordCheck.message}</p>
                     )}
                 </label>
-                <button className="register-button" type="submit">registeren</button>
-                {errorMessage && (<p>{errorMessage}</p>)}
+                <button className="button" type="submit">registeren</button>
+                {errorMessage && (<p className="error-message">{errorMessage}</p>)}
                 {successMessage && (<p>{successMessage}</p>)}
-                <p>Heb je al een account?<Link to="/">Login</Link></p>
+                <p>Heb je al een account?<Link to="/"><span className="blue">Login</span></Link></p>
             </form>
         </div>
     );
