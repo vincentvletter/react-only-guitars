@@ -5,7 +5,7 @@ Deze applicatie is ontwikkelt om mensen met een passie voor gitaren, gitaren te 
 
 ### Clone de backend applicatie
 
-Clone hier "HIER DE BACKEND LINK" de backend applicatie, en open deze in IntelliJ IDEA, en RUN de applicatie.
+Clone hier "https://github.com/vincentvletter/OnlyGuitars" de backend applicatie, en open deze in IntelliJ IDEA, en RUN de applicatie.
 
 ### Clone de applicatie
 
