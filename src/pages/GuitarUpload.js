@@ -28,12 +28,14 @@ function GuitarUpload() {
                 headers: {"Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`},
             });
             setSuccessMessage("guitar geupload");
-            setErrorMessage("");
         } catch (e) {
             console.error(e.response.data);
             setErrorMessage("Deze gitaar is al toegevoegd!");
-            setSuccessMessage("");
         }
+        setTimeout(() => {
+            setErrorMessage("");
+            setSuccessMessage("");
+        },2000)
     }
 
     useEffect(() => {
@@ -98,9 +100,12 @@ function GuitarUpload() {
                             type="text"
                             id="details-brand"
                             {...register("brand", {
-                                required: "This field is required",
+                                required: "Het veld is leeg!",
                             })}
                         />
+                        {errors.brand && (
+                            <p className="error-message">{errors.brand.message}</p>
+                        )}
                     </label>
                     <label htmlFor="details-model">
                         Model:
@@ -108,11 +113,11 @@ function GuitarUpload() {
                             type="text"
                             id="details-model"
                             {...register("model", {
-                                required: "This field is required!",
+                                required: "Het veld is leeg!",
                             })}
                         />
                         {errors.model && (
-                            <p>{errors.model.message}</p>
+                            <p className="error-message">{errors.model.message}</p>
                         )}
                     </label>
                     <label htmlFor="details-image">
@@ -121,15 +126,17 @@ function GuitarUpload() {
                             type="file"
                             accept="image/*"
                             id="details-image"
-                            {...register("image")}
+                            {...register("image",{
+                                required: "Geen foto geselecteerd!",
+                            })}
                             onChange={handleFileSelect}
                         />
                         {errors.image && (
-                            <p>{errors.image.message}</p>
+                            <p className="error-message">{errors.image.message}</p>
                         )}
                     </label>
                     <button className="button" type="submit">Toevoegen</button>
-                    {errorMessage && (<p>{errorMessage}</p>)}
+                    {errorMessage && (<p className="error-message">{errorMessage}</p>)}
                     {successMessage && (<p>{successMessage}</p>)}
                 </form>
             </div>

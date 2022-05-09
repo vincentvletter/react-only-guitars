@@ -4,7 +4,9 @@ import axios from "axios";
 import {Link, useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
 
+
 function Register() {
+
     const {register, formState: {errors}, handleSubmit, watch} = useForm();
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -18,14 +20,19 @@ function Register() {
                 password: data.password,
                 username: data.username,
             })
-            setSuccessMessage("account successful created!")
+            setSuccessMessage("account aangemaakt!");
+            setTimeout(() => {
+                history.push('/');
+            }, 2000)
         } catch (e) {
             console.error(e.response.data);
-            setErrorMessage(e.response.data.errorList[0])
+            console.error(e.response)
+            setErrorMessage(e.response.data);
         }
-        history.push('/');
+        setTimeout(() => {
+            setErrorMessage("");
+        },2000)
     }
-
 
     function onFormSubmit(data) {
         userRegister(data);
@@ -40,7 +47,7 @@ function Register() {
                     <input
                         type="text"
                         id="details-username"
-                        {...register("username",{
+                        {...register("username", {
                             required: "Het veld is leeg!",
                         })}
                     />

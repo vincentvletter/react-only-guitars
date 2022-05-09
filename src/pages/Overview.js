@@ -5,8 +5,8 @@ import Tile from "../components/Tile";
 
 
 function Overview() {
-    const [result, setResult] = useState();
 
+    const [result, setResult] = useState();
 
     useEffect(() => {
 
@@ -29,11 +29,10 @@ function Overview() {
         fetchGuitar();
     }, [])
 
-
     return (
         <section>
             <article className="tile-content">
-                <h2>Overview</h2>
+                <h2>Overzicht</h2>
             </article>
             <article className="tile-container">
                 {result && result.map((guitar) => {

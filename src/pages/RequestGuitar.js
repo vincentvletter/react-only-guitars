@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 function RequestGuitar() {
+
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -26,9 +27,9 @@ function RequestGuitar() {
             console.error(e.response.data);
             setErrorMessage("Er ging iets mis.");
         }
-        setInterval(() => {
+        setTimeout(() => {
             setSuccessMessage("");
-        }, 1000);
+        }, 2000);
     }
 
     function onFormSubmit(data) {
@@ -40,7 +41,7 @@ function RequestGuitar() {
             <form id="form" onSubmit={handleSubmit(onFormSubmit)}>
                 <h2>Request</h2>
                 <label htmlFor="details-brand">
-                    Brand:
+                    Merk:
                     <input
                         type="text"
                         id="details-brand"
