@@ -29,7 +29,7 @@ function AuthContextProvider({children}) {
                 status: "done",
             })
         }
-    }, [])
+    },[])
 
     const history = useHistory();
 
