@@ -39,7 +39,7 @@ function RequestGuitar() {
     return (
         <div className="form-container">
             <form id="form" onSubmit={handleSubmit(onFormSubmit)}>
-                <h2>Request</h2>
+                <h2>Aanvraag</h2>
                 <label htmlFor="details-brand">
                     Merk:
                     <input
