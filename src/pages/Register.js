@@ -32,6 +32,12 @@ function Register() {
         setTimeout(() => {
             setErrorMessage("");
         },2000)
+            setSuccessMessage("account successful created!");
+            history.push('/');
+        } catch (e) {
+            console.error(e.response.data);
+            setErrorMessage("Gebruikersnaam bestaat al");
+        }
     }
 
     function onFormSubmit(data) {
