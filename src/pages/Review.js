@@ -3,7 +3,9 @@ import {useForm} from "react-hook-form";
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 
+
 function Review() {
+
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -26,8 +28,11 @@ function Review() {
             setSuccessMessage("Review toegevoegd!");
         } catch (e) {
             console.error(e.response.data);
-            setErrorMessage(e.response.data.errorList[0])
+            setErrorMessage(e.response.data.errorList[0]);
         }
+        setTimeout(() => {
+            history.push(`/guitar/${id}`);
+        }, 2000)
     }
 
     function onFormSubmit(data) {
@@ -70,7 +75,6 @@ function Review() {
                 {errorMessage && (<p className="error-message">{errorMessage}</p>)}
                 {successMessage && (<p>{successMessage}</p>)}
                 <button className="button" type="submit">versturen</button>
-                <button className="button" type="submit" onClick={() => history.push(`/guitar/${id}`)}>back</button>
             </form>
         </div>
     )

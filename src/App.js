@@ -16,8 +16,6 @@ import PrivateRouteAdmin from "./components/PrivateRouteAdmin";
 
 function App() {
 
-
-
     return (
         <>
             <NavBar>

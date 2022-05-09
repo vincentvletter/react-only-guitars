@@ -5,11 +5,15 @@ import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 import ReviewTile from "../components/ReviewTile";
 
+
 function Guitar() {
+
     const [result, setResult] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
+
     const {id} = useParams();
+
     const history = useHistory();
 
     const token = localStorage.getItem("token");
@@ -23,6 +27,7 @@ function Guitar() {
                         Authorization: `Bearer ${token}`,
                     }
                 });
+                console.log(response.data);
                 setResult(response.data);
             } catch (e) {
                 console.error(e.response.data);
@@ -32,7 +37,7 @@ function Guitar() {
         if (id) {
             fetchGuitar();
         }
-    }, [])
+    }, [id, token])
 
     function handleClick() {
         addGuitarToProfile()
@@ -54,6 +59,10 @@ function Guitar() {
             setErrorMessage("Deze gitaar staat al op je profiel!");
             setSuccessMessage("");
         }
+        setTimeout(() => {
+            setSuccessMessage("");
+            setErrorMessage("");
+        },2000)
     }
 
     function handleReviewClick() {
@@ -68,7 +77,7 @@ function Guitar() {
                     <h1>{result.model}</h1>
                 </article>
                 <article className="mid-container">
-                    <img className="guitar-image" src={result.imageApi} alt="guitar-image"/>
+                    <img className="guitar-image" src={result.imageApi} alt="guitar"/>
                     <Heart className="heart-guitar-page" onClick={handleClick}/>
                     {errorMessage && (<p>{errorMessage}</p>)}
                     {successMessage && (<p>{successMessage}</p>)}
@@ -84,8 +93,8 @@ function Guitar() {
                 </article>
                 <div className="button-container">
                     <button type="button" className="button" onClick={handleReviewClick}>Schrijf een review</button>
-                    <button type="button" className="button" onClick={() => history.push("/overview")}>Naar overview
-                    </button>
+                    <button type="button" className="button"><a href={`http://localhost:8080/image/${id}/download`} download>Download foto</a></button>
+                    <button type="button" className="button" onClick={() => history.push("/overview")}>Naar overview</button>
                 </div>
             </div>
         </section>
