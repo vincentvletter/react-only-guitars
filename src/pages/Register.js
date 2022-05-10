@@ -20,23 +20,17 @@ function Register() {
                 password: data.password,
                 username: data.username,
             })
-            setSuccessMessage("account aangemaakt!");
+            setSuccessMessage("Account aangemaakt!");
             setTimeout(() => {
                 history.push('/');
-            }, 2000)
+            }, 2000);
         } catch (e) {
             console.error(e.response.data);
-            console.error(e.response)
-            setErrorMessage(e.response.data);
-        }
-        setTimeout(() => {
-            setErrorMessage("");
-        },2000)
-            setSuccessMessage("account successful created!");
-            history.push('/');
-        } catch (e) {
-            console.error(e.response.data);
-            setErrorMessage("Gebruikersnaam bestaat al");
+            setErrorMessage("Gebruikersnaam bestaat al!");
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 2000);
+
         }
     }
 
