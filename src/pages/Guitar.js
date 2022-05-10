@@ -28,7 +28,6 @@ function Guitar() {
                         Authorization: `Bearer ${token}`,
                     }
                 });
-                console.log(response.data);
                 setResult(response.data);
             } catch (e) {
                 console.error(e.response.data);
