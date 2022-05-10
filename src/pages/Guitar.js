@@ -18,6 +18,7 @@ function Guitar() {
 
     const token = localStorage.getItem("token");
 
+
     useEffect(() => {
         async function fetchGuitar() {
             try {
@@ -87,6 +88,7 @@ function Guitar() {
                         return <ReviewTile
                             title={review.title}
                             details={review.details}
+                            username={review.username}
                             key={review.timeStamp}
                         />
                     })}
