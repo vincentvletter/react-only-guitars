@@ -11,6 +11,7 @@ function GuitarUpload() {
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
     const [deleted, setDeleted] = useState(false);
+
     const {register, formState: {errors}, handleSubmit} = useForm();
 
     const token = localStorage.getItem("token");

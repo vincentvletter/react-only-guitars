@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 
 
 function Tile({id, review}) {
+
     const [result, setResult] = useState({});
 
     useEffect(() => {
