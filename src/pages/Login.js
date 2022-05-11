@@ -12,7 +12,6 @@ function Login() {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [errorMessage, setErrorMessage] = useState("");
 
-
     async function logUserIn(data) {
         try {
             const response = await axios.post("http://localhost:8080/login", {

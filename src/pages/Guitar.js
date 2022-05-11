@@ -18,7 +18,6 @@ function Guitar() {
 
     const token = localStorage.getItem("token");
 
-
     useEffect(() => {
         async function fetchGuitar() {
             try {

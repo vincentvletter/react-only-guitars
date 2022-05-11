@@ -8,6 +8,7 @@ import {useForm} from "react-hook-form";
 function Register() {
 
     const {register, formState: {errors}, handleSubmit, watch} = useForm();
+
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 

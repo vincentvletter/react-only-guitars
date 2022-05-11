@@ -7,6 +7,7 @@ import {useHistory} from "react-router-dom";
 
 
 function Profile() {
+
     const contexData = useContext(AuthContext);
     const [result, setResult] = useState();
     const history = useHistory();
